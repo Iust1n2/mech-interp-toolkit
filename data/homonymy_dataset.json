@@ -1,0 +1,86 @@
+[
+    {
+        "correct_token": " spring",
+        "wrong_1": " autumn", 
+        "wrong_2": " chocolate",
+        "1": "Flowers bloom in the season of",
+        "2": "I went to Takargawa Onsen because I heard that they have the best hot"
+    },
+    {
+        "correct_token": " date",
+        "wrong_1": " walk",
+        "wrong_2": " weather",
+        "1": "On Valentine's day he asked her to go on a",
+        "2": "A Nokia has settings for time and"
+    },
+    {
+        "correct_token": " light",
+        "wrong_1": " news",
+        "wrong_2": " soft",
+        "1": "It is dark, please turn on the",
+        "2": "You can describe weight as heavy or"
+    },
+    {
+        "correct_token": " bank",
+        "wrong_1": " car",
+        "wrong_2": " center",
+        "1": "The thief robbed a", 
+        "2": "He went to donate blood at the blood"
+    },
+    {
+        "correct_token": " club",
+        "wrong_1": " park",
+        "wrong_2": " store",
+        "1": "If you want to party all night you should go to a",
+        "2": "If you want to meet new people you should join a book"
+    },
+    {
+        "correct_token": " rock",
+        "wrong_1": " ball",
+        "wrong_2": " pop",
+        "1": "The killer was attacking me so I threw a",
+        "2": "If you play the electric guitar you are into"
+    },
+    {
+        "correct_token": " point",
+        "wrong_1": " direction",
+        "wrong_2": " shot",
+        "1": "In the 2D plane there is only one",
+        "2": "If two teams tie in a match, each will get only one"
+    },
+    {
+        "correct_token": " can",
+        "wrong_1": " did",
+        "wrong_2": " bag",
+        "1": "I know that Tom is able so he certainly",
+        "2": "Beer can come in a bottle or a"
+    },
+    {
+        "correct_token": " bat",
+        "wrong_1": " stick",
+        "wrong_2": " cat",
+        "1": "He hit the ball with a baseball",
+        "2": "Batman's signal is a light in the shape of a"
+    },
+    {
+        "correct_token": " park",
+        "wrong_1": " library",
+        "wrong_2": " drive",
+        "1": "After school the children went to play in the",
+        "2": "You can put a car in reverse, neutral, or"
+    },
+    {
+        "correct_token": " check",
+        "wrong_1": " letter",
+        "wrong_2": " pay",
+        "1": "To pay, the businessman wrote a",
+        "2": "When you go to the airport you must first"
+    },
+    {
+        "correct_token": " watch",
+        "wrong_1": " chain",
+        "wrong_2": " play",
+        "1": "I checked the time on my silver",
+        "2": "The cup final is tonight, let's go to the pub to"
+    }
+]
