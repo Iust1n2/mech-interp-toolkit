@@ -142,6 +142,8 @@ def show_attention_patterns(
         good_names.append(f"blocks.{layer}.attn.hook_pattern")
         # elif mode == "scores":
         good_names.append(f"blocks.{layer}.attn.hook_attn_scores")
+        # if hasattr(model.cfg, "n_key_value_heads"):
+        good_names.append(f"blocks.{layer}.attn.hook_z")
         # else:
         if precomputed_cache is None:
             cache = {}
@@ -154,6 +156,7 @@ def show_attention_patterns(
                 (good_names[0], partial(hook_fn, name=good_names[0])), # hook_v
                 (good_names[1], partial(hook_fn, name=good_names[1])), # hook_pattern
                 (good_names[2], partial(hook_fn, name=good_names[2])), # hook_attn_scores
+                (good_names[3], partial(hook_fn, name=good_names[3])), # hook_z
             ]
             model.run_with_hooks(prompts, fwd_hooks=fwd_hooks)
         else:
@@ -170,10 +173,14 @@ def show_attention_patterns(
         attn_pattern = cache[good_names[1]].detach().cpu()[:, head, :, :].squeeze(0)
         attn_scores = cache[good_names[2]].detach().cpu()[:, head, :, :].squeeze(0)
         if mode == "val":
-            vals = cache[good_names[0]].detach().cpu()[:, :, head, :].norm(dim=-1).squeeze(0)
-            # print(f"vals shape: {vals.shape}")
-            # print(f"attn_pattern shape: {attn_pattern.shape}")
-            cont = torch.einsum("ab,b->ab", attn_pattern, vals)        
+            if not hasattr(model.cfg, "n_key_value_heads"):
+                vals = cache[good_names[0]].detach().cpu()[:, :, head, :].norm(dim=-1).squeeze(0)
+                # print(f"vals shape: {vals.shape}")
+                # print(f"attn_pattern shape: {attn_pattern.shape}")
+                cont = torch.einsum("ab,b->ab", attn_pattern, vals)        
+            else:
+                cont = cache[good_names[3]].detach().cpu()[0, :, head, :]
+                print(cont.shape)
 
         fig = px.imshow(
             attn_pattern if mode == "pattern" else attn_scores if mode == "scores" else cont,
